@@ -255,46 +255,28 @@ MAE dan MSE adalah dua metrik yang umum digunakan untuk mengukur kinerja model r
   \end{aligned}
   ```
 
-### Perbandingan Performa Setelah dan Sebelum Hyperparameter Tuning
-<img src="https://github.com/user-attachments/assets/568c7f26-cac8-4a9b-a84a-5b74430c15dc" alt="image" width="300"/>
-
-Pada tahap awal, model dilatih tanpa melakukan hyperparameter tuning, menghasilkan nilai Mean Squared Error (MSE) sebesar 6.978.760.79 dan Mean Absolute Error (MAE) sebesar 1.242.54. Hasil ini menunjukkan bahwa model sudah cukup baik dalam memprediksi harga, namun masih terdapat ruang untuk perbaikan dalam hal akurasi prediksi.
-
-<img src="https://github.com/user-attachments/assets/fd3af31b-485a-4596-9e4f-b1758e7a04d2" alt="image" width="350"/>
-
-Setelah melakukan tuning dan diperoleh parameter terbaik dengan nilai learning_rate = 0.1, max_depth = 5, n_estimators = 100, dan subsample = 1.0, model mengalami peningkatan performa dengan MSE menurun menjadi 6.450.337,21 dan MAE turun menjadi 1.222.15. Penurunan nilai MSE dan MAE ini menandakan bahwa model berhasil lebih baik dalam memprediksi harga Solana setelah dilakukan penyesuaian parameter.
-
-MSE yang lebih rendah mengindikasikan bahwa rata-rata kesalahan kuadrat dari prediksi model telah menurun, mengurangi dampak outlier. Hal ini penting dalam prediksi harga BTC karena mengurangi kesalahan prediksi yang ekstrem, yang sebelumnya berdampak signifikan pada hasil keseluruhan.
-
-MAE yang juga lebih kecil, turun ke 1.222.15, menunjukkan peningkatan akurasi prediksi dengan rata-rata kesalahan sekitar 1.222 USD. Dalam konteks volatilitas Solana, kesalahan ini lebih terkontrol, menunjukkan bahwa model mampu menangkap pola harga dengan lebih akurat setelah tuning, menghasilkan prediksi yang lebih mendekati nilai aktual.
-
 ### Harga Aktual vs Prediksi
 Dalam analisis ini, kita akan membandingkan harga aktual Solana dengan harga yang diprediksi oleh model XGBoost melalui visualisasi scatterplot. Visualisasi ini tidak hanya memungkinkan kita untuk melihat sejauh mana prediksi model sejalan dengan data aktual, tetapi juga membantu kita mengidentifikasi pola dan outlier yang mungkin ada.
 
-<!-- ![image](https://github.com/user-attachments/assets/1ff9d957-6f01-4a93-a65b-b18d685ff770) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/aktual_prediksi.jpg) -->
 
-<img src="https://github.com/user-attachments/assets/1ff9d957-6f01-4a93-a65b-b18d685ff770" alt="image" width="680"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/aktual_prediksi.jpg" alt="image" width="680"/>
 
 Dari visualiasi di atas didapatkan informasi sebagai berikut:
 - Meskipun ada beberapa titik data yang melenceng dari garis ideal, tetapi secara keseluruhan sebaran titik-titik pada grafik harga aktual vs harga prediksi menunjukkan bahwa prediksi model XGBoost cukup akurat dan mengikuti tren harga aktual dengan baik.
 - Namun, perlu diingat bahwa model tetap memiliki keterbatasan dan prediksi harga Solana di dunia nyata dipengaruhi oleh banyak faktor kompleks yang mungkin tidak sepenuhnya tercakup dalam model, seperti sentimen pasar, regulasi pemerintah, dan berita terkait Solana.
 
-### Prediksi Harga 5 Hari ke Depan
+### Prediksi Harga 10 Hari ke Depan
 Selanjutnya, akan diprediksi harga Solana untuk lima hari ke depan, suatu hal yang menjadi salah satu tujuan utama dalam pembuatan model ini. Karena baris data terakhir berada di tanggal 19 Oktober 2024, maka hasil prediksi akan berada di tanggal 20-24 Oktober 2024.
-<!-- ![image](https://github.com/user-attachments/assets/bede56a3-b173-4caa-ab4f-0eb7ca9af10d) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/10_hari.jpg) -->
 
-<img src="https://github.com/user-attachments/assets/bede56a3-b173-4caa-ab4f-0eb7ca9af10d" alt="image" width="300"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/10_hari.jpg" alt="image" width="300"/>
 
-Berdasarkan model XGBoost yang telah dituning, prediksi harga Solana untuk periode 20 hingga 24 Oktober 2024 menunjukkan fluktuasi harga yang bervariasi. Pada tanggal 20 Oktober, harga diperkirakan mencapai sekitar $66.115, yang kemudian mengalami kenaikan menjadi $67.201 pada tanggal 21 Oktober. Namun, harga mengalami penurunan pada tanggal 22 Oktober, dengan prediksi sekitar $64.347.
-
-Prediksi kembali menunjukkan tren pemulihan pada tanggal 23 Oktober, dengan estimasi harga $66.573, sebelum mengalami penurunan lagi menjadi $61.313 pada tanggal 24 Oktober. Fluktuasi harga ini mencerminkan dinamika pasar yang mungkin dipengaruhi oleh faktor eksternal, seperti berita industri atau perubahan sentimen pasar.
+Berdasarkan model XGBoost yang telah dituning, prediksi harga Solana untuk periode 8 hingga 17 Desember 2024 menunjukkan fluktuasi harga yang bervariasi. dilihat dari harga prediksi tersebut harga solana masih dalam posisi sideways karena tidak ada lonjakan harga yang tinggi maupun rendah, pada fase ini koin solana ini di dukung naratif yang positif yaitu solana bisa menjadi alternatif network pengganti ETH yang lebih cepat dengan gas fee yang lebih murah maka posisi sideways ini bisa digunakan para investor untuk melakukan akumulasi dan Menunggu momentum untuk harga naik
 
 Secara keseluruhan, hasil prediksi ini memberikan insight penting bagi investor dan trader untuk merencanakan strategi perdagangan mereka berdasarkan proyeksi harga Solana dalam jangka pendek.
 
 ## References
-1. Klabbers S. Solana as an investment asset: The added value of Solana in a global market portfolio. Ubnrunl [Internet]. 2017; Available from: https://theses.ubn.ru.nl/handle/123456789/4434
-2. Hung C, Jacky Filbert Wijaya, Victor V, Irpan Adiputra Pardosi, Frans Mikael Sinaga. Prediksi Fluktuasi Harga Solana Dengan Menggunakan Random Forest Classifier. Jurnal Sifo Mikroskil. 2023 Oct 29;24(2):95–108.
-3. Sihombing S, Rizky Nasution M, Sadalia I. Analisis Fundamental Cryptocurrency terhadap Fluktuasi Harga: Studi Kasus Tahun 2019-2020. Jurnal Akuntansi, Keuangan, dan Manajemen. 2021 Jun 20;2(3):213–24.
-4. Shu M, Song R, Zhu W. The 2021 Solana Bubbles and Crashes—Detection and Classification. Stats. 2021 Nov 21;4(4):950–70.
+1. Sihombing S, Rizky Nasution M, Sadalia I. Analisis Fundamental Cryptocurrency terhadap Fluktuasi Harga: Studi Kasus Tahun 2019-2020. Jurnal Akuntansi, Keuangan, dan Manajemen. 2021 Jun 20;2(3):213–24.
 
 
