@@ -10,28 +10,26 @@ Teknologi kecerdasan buatan dan pembelajaran mesin (machine learning) telah terb
 Proyek ini bertujuan untuk mengembangkan model prediktif harga Solana menggunakan data historis pasar, termasuk harga, volume perdagangan, serta indikator teknis dan fundamental. Hasil penelitian ini diharapkan dapat memberikan kontribusi signifikan dalam pemahaman dan pengelolaan risiko dalam investasi cryptocurrency, khususnya Solana, di tengah dinamika pasar yang terus berkembang.
 
 ## Business Understanding
-Investor cryptocurrency, khususnya Solana, adalah individu yang berusaha mendapatkan keuntungan dari fluktuasi harga aset digital. Dalam dunia investasi Solana, kemampuan untuk menganalisis data historis seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah, volume transaksi, dan kapitalisasi pasar merupakan keahlian penting. Melalui analisis ini, investor berupaya memprediksi pergerakan harga Solana di masa depan berdasarkan pola historis yang ada.
+Investor cryptocurrency, khususnya Solana, adalah individu yang berusaha mendapatkan keuntungan dari fluktuasi harga aset digital. Dalam dunia investasi, kemampuan untuk menganalisis data historis seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah merupakan keahlian penting. Melalui analisis ini, investor berupaya memprediksi pergerakan harga Solana di masa depan berdasarkan pola historis yang ada.
 
 Solana terkenal dengan volatilitasnya yang tinggi, di mana harga dapat berfluktuasi secara signifikan dalam waktu singkat. Prediksi yang terlalu optimis dapat menyebabkan kerugian besar, sementara sikap terlalu konservatif bisa mengakibatkan kehilangan peluang investasi yang berpotensi menguntungkan. Oleh karena itu, diperlukan sebuah metode yang mampu mengelola ketidakpastian ini dengan lebih akurat.
 
-Salah satu solusi yang dapat diterapkan adalah dengan memanfaatkan teknik machine learning. Dengan memodelkan data historis yang mencakup berbagai faktor seperti harga dan volume transaksi, teknik ini dapat membantu investor mendapatkan prediksi yang lebih akurat mengenai pergerakan harga Solana. Prediksi yang akurat tidak hanya membantu investor meminimalkan risiko kerugian, tetapi juga memaksimalkan peluang keuntungan di pasar yang dinamis dan sulit diprediksi ini.
+Salah satu solusi yang dapat diterapkan adalah dengan memanfaatkan teknik machine learning. Dengan memodelkan data historis, teknik ini dapat membantu investor mendapatkan prediksi yang lebih akurat mengenai pergerakan harga Solana. Prediksi yang akurat tidak hanya membantu investor meminimalkan risiko kerugian, tetapi juga memaksimalkan peluang keuntungan di pasar yang dinamis dan sulit diprediksi ini.
 
 ### Problem Statement
-Berdasarkan kondisi yang telah diuraikan sebelumnya, proyek ini akan mengembangkan sebuah sistem prediksi harga Solana berdasarkan data historis yaitu harga tertinggi, harga terendah, harga pembukaan, harga penutupan, volume transaksi, dan kapitalisasi pasar dimana masing masing faktor memiliki peran penting dalam pergerakan harga Solana seperti:
+Berdasarkan kondisi yang telah diuraikan sebelumnya, proyek ini akan mengembangkan sebuah sistem prediksi harga Solana berdasarkan data historis yaitu harga tertinggi, harga terendah, harga pembukaan, harga penutupan dimana masing masing faktor memiliki peran penting dalam pergerakan harga Solana seperti:
 - Harga Tertinggi: Mencerminkan titik harga tertinggi yang dicapai Solana dalam periode tertentu. Faktor ini penting karena menunjukkan batas atas kekuatan beli di pasar dan sering kali menjadi patokan untuk menentukan apakah harga sedang mendekati titik resistensi.
 - Harga Terendah: Menunjukkan titik terendah harga Solana dalam periode tertentu. Ini membantu mengidentifikasi titik dukungan dimana tekanan jual mungkin telah memudar, memberikan gambaran mengenai batas bawah dari volatilitas pasar.
 - Harga Pembukaan: Adalah harga awal dari Solana di awal periode perdagangan. Perbandingan antara harga pembukaan dan harga penutupan bisa memberikan indikasi tentang tren pasar yang sedang terjadi, apakah tren naik (bullish) atau turun (bearish).
 - Harga Penutupan: Harga pada akhir periode perdagangan merupakan salah satu indikator kunci yang sering digunakan untuk melihat kecenderungan harga secara keseluruhan. Perubahan harga penutupan dari waktu ke waktu membantu dalam memahami pola tren harga di masa depan.
-- Volume Transaksi: Volume transaksi mengukur seberapa banyak Solana yang diperdagangkan dalam satu periode waktu. Tingginya volume transaksi sering kali dikaitkan dengan kekuatan pasar di balik pergerakan harga, di mana peningkatan volume dapat menandakan bahwa pergerakan harga tersebut lebih valid dan didukung oleh aktivitas pasar yang kuat.
-- Kapitalisasi Pasar: Kapitalisasi pasar adalah nilai total dari semua Solana yang beredar di pasar. Ini memberikan gambaran tentang seberapa besar pasar Solana pada saat tertentu dan seberapa besar pengaruhnya terhadap fluktuasi harga. Kapitalisasi yang besar biasanya menunjukkan kestabilan, sedangkan kapitalisasi yang lebih kecil dapat berarti bahwa harga lebih rentan terhadap perubahan signifikan.
 
 Dengan menggunakan teknologi machine learning algoritma XGBoost dan hyperparameter tuning diharapkan dapat menjawab permasalahan berikut: 
-- Bagaimana cara memanfaatkan data historis harga Solana seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah, volume transaksi, dan kapitalisasi pasar untuk memprediksi harganya di masa depan?
+- Bagaimana cara memanfaatkan data historis harga Solana seperti harga pembukaan, harga penutupan, harga tertinggi, harga terendah untuk memprediksi harganya di masa depan?
 - Bagaimana cara mengoptimalkan kinerja algoritma XGBoost untuk memprediksi harga Solana melalui parameter-parameter penting seperti learning rate, max_depth, subsample, dan n_estimators?
 
 ### Goals
 Untuk menjawab problem statement tersebut, akan dibuat predictive modelling dengan tujuan atau goals sebagai berikut:
-- Membuat model machine learning yang dapat memprediksi harga Solana untuk 5 hari ke depan berdasarkan parameter yang ditetapkan.
+- Membuat model machine learning yang dapat memprediksi harga Solana untuk 10 hari ke depan berdasarkan parameter yang ditetapkan.
 - Mencari nilai optimal untuk learning rate, max_depth, subsample, dan n_estimators pada algoritma XGBoost melalui proses hyperparameter tuning, dengan tujuan memaksimalkan akurasi prediksi harga Solana.
 
 ### Solution Statement
@@ -44,36 +42,19 @@ Untuk mencapai goals tersebut, ada 2 pendekatan yang akan digunakan yaitu:
   - n_estimators: Menentukan jumlah pohon keputusan yang akan dibangun. Jumlah pohon yang terlalu sedikit dapat menyebabkan underfitting, sedangkan jumlah pohon yang terlalu banyak dapat menyebabkan overfitting.
 
 ## Data Understanding
-Data yang akan digunakan pada proyek kali ini adalah [Cryptocurrency Historical Prices](https://www.kaggle.com/datasets/sudalairajkumar/cryptocurrencypricehistory) yang diunduh dari kaggle dan [Historical Solana Price](https://coinmarketcap.com/currencies/Solana/historical-data/) dari coinmarketcap. Untuk memudahkan pendefinisiannya, dataset dari kaggle akan disebut sebagai dataset pertama, sedangkan dataset dari coinmarketcap akan disebut sebagai dataset kedua.
+Data yang akan digunakan pada proyek kali ini adalah [Solana Historical Data](https://www.investing.com/indices/investing.com-sol-usd-historical-data) yang diunduh dariInvesting.com 
 
-Dataset pertama memiliki rentang waktu dari 29 April 2013 sampai 7 Juli 2021, sedangkan dataset kedua memiliki rentang waktu dari 8 Juli 2021 sampai 19 Oktober 2024.
-Nantinya kedua dataset tersebut akan digabungkan, dengan menggabungkan kedua dataset, model dapat belajar dari berbagai kondisi pasar dan menangkap perubahan pola yang terjadi seiring waktu. Hal ini memungkinkan model untuk memberikan prediksi yang lebih akurat dan adaptif terhadap dinamika pasar kripto yang kompleks.
+Dataset ini memiliki rentang waktu dari 13 Juli 2020 sampai 7 Desember 2024, Nantinya dari dataset tersebut model dapat belajar dari berbagai kondisi pasar dan menangkap perubahan pola yang terjadi seiring waktu. Hal ini memungkinkan model untuk memberikan prediksi yang lebih akurat dan adaptif terhadap dinamika pasar kripto yang kompleks.
 
-Dataset pertama berisi 2991 records dan 10 kolom yang memiliki karakteristik sebagai berikut:
-- SNo: Nomor urut atau indeks data.
-- Name: Nama aset, dalam kasus ini, "Solana".
-- Symbol: Simbol ticker untuk aset.
+Dataset berisi 1602 records dan 7 kolom yang memiliki karakteristik sebagai berikut:
+
 - Date: Tanggal data harga.
 - High: Harga tertinggi yang dicapai Solana pada hari tersebut.
 - Low: Harga terendah yang dicapai Solana pada hari tersebut.
 - Open: Harga pembukaan Solana pada hari tersebut.
-- Close: Harga penutupan Solana pada hari tersebut.
-- Volume: Volume perdagangan Solana pada hari tersebut.
-- Marketcap: Kapitalisasi pasar Solana pada hari tersebut, yang merupakan produk dari harga penutupan dan jumlah Solana yang beredar.
-
-Kemudian, dataset kedua berisi 1200 records dan 12 kolom yang memiliki karakteristik sebagai berikut:
-- timeOpen: Menandakan waktu di mana pasar dibuka untuk perdagangan pada hari tersebut. 
-- timeClose: Menandakan waktu di mana pasar ditutup untuk perdagangan pada hari tersebut.
-- timeHigh: Menandakan waktu di mana harga tertinggi tercapai pada hari tersebut.
-- timeLow: Menandakan waktu di mana harga terendah tercapai pada hari tersebut.
-- name: Menunjukkan nama aset yang diperdagangkan, dalam hal ini Solana.
-- open: Harga pembukaan Solana pada hari tersebut.
-- high:Harga tertinggi yang dicapai Solana pada hari tersebut.
-- low:  Harga terendah yang dicapai Solana pada hari tersebut.
-- close: Harga penutupan Solana pada hari tersebut.
-- volume: olume perdagangan Solana pada hari tersebut.
-- marketCap: Kapitalisasi pasar Solana pada hari tersebut, yang merupakan produk dari harga penutupan dan jumlah Solana yang beredar.
-- timestamp: Ini adalah stempel waktu yang mencatat kapan data tersebut direkam.
+- Price: Harga penutupan Solana pada hari tersebut.
+- Vol.: Volume perdagangan Solana pada hari tersebut.
+- Change%: perubahan persentase dalam harga Solana (SOL) dalam periode waktu tertentu.
 
 Untuk memahami data, selanjutnya akan dilakukan proses berikut:
 ### 1. Data Loading
