@@ -117,7 +117,7 @@ plt.show()
 
 -Tren Keseluruhan: Terlihat adanya tren peningkatan harga Solana secara umum selama periode tersebut.
 
--Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di tahun 2021-07 sampai 2022-07 dan terlihat pula mengalami ETH di tahun 2024 dan mulai menunjukan penurunan kembali.
+-Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di tahun 2022-07 sampai 2023-07 dan terlihat pula mengalami ETH di tahun 2024-01 dan mulai menunjukan penurunan kembali.
 
 -Hubungan antar harga: Harga pembukaan, penutupan, tertinggi, dan terendah cenderung bergerak bersama-sama, yang mengindikasikan adanya korelasi antara berbagai aspek aktivitas harga harian Solana.
 
@@ -356,3 +356,8 @@ predictions_df = pd.DataFrame({
 })
 
 predictions_df
+
+"""Berdasarkan model XGBoost yang telah dituning, prediksi harga Solana untuk periode 8 hingga 17 Desember 2024 menunjukkan fluktuasi harga yang bervariasi. dilihat dari harga prediksi tersebut harga solana masih dalam posisi sideways karena tidak ada lonjakan harga yang tinggi maupun rendah, pada fase ini koin solana ini di dukung naratif yang positif yaitu solana bisa menjadi alternatif network pengganti ETH yang lebih cepat dengan gas fee yang lebih murah maka posisi sideways ini bisa digunakan para investor untuk melakukan akumulasi dan Menunggu momentum untuk harga naik
+
+Secara keseluruhan, hasil prediksi ini memberikan insight penting bagi investor dan trader untuk merencanakan strategi perdagangan mereka berdasarkan proyeksi harga Solana dalam jangka pendek.
+"""
