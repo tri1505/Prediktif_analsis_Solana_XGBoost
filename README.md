@@ -71,72 +71,35 @@ Mengecek informasi pada dataset dengan fungsi info() berikut.
 <br>
 
 Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara lain:
-- 6 Kolom dengan tipe float64 yaitu High, Low, Open, Close, Volume, dan Marketcap
-- 1 Kolom dengan tipe int64 yaitu SNo
-- 3 Kolom dengan tipe object yaitu Name, Symbol, dan Date
+- 4 Kolom dengan tipe float64 yaitu High, Low, Open, Price
+- 3 Kolom dengan tipe object yaitu VOl., Change%
 
 <br>
 
-Kemudian untuk dataset kedua juga menggunakan fungsi yang sama.
-<br>
 
-<!-- ![image](https://github.com/user-attachments/assets/ce85ffc1-4b54-46b8-8cf9-5eb3c488aacb) -->
-
-<img src="https://github.com/user-attachments/assets/ce85ffc1-4b54-46b8-8cf9-5eb3c488aacb" alt="image" width="300"/>
-<br>
-
-Berdasarkan informasi di atas dataset kedua memiliki beberapa kriteria antara lain:
-- 10 Kolom dengan tipe object yaitu timeOpen, timeClose, timeHigh, timeLow, open, high, low, close, volume, marketCap
-- 1 Kolom dengan tipe datetime[ns, UTC] yaitu timestamp
-- 1 Kolom dengan tipe int64 yaitu name
 
 #### Cek Missing Value
 Jika data terdiri dari ratusan bahkan ribuan baris tentu akan susah dalam menemukan nilai field yang kosong. Oleh karena itu, Pandas memungkinkan kita dapat menemukan missing value secara cepat dengan fungsi isna() dan sum().
 <br>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/8efec933-e14f-431e-aee8-0d8c120727d9" alt="dataset 1" width="100"/>
-  <img src="https://github.com/user-attachments/assets/dfcaa49b-937a-4485-aaca-3bf6caa8a8e9" alt="dataset 2" width="100"/>
+  <img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg" alt="dataset 1" width="100"/>
 </p>
 
-<!-- ![image](https://github.com/user-attachments/assets/8efec933-e14f-431e-aee8-0d8c120727d9) -->
-<!-- ![image](https://github.com/user-attachments/assets/dfcaa49b-937a-4485-aaca-3bf6caa8a8e9) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg) -->
 
-Pada dataset pertama dan kedua tidak ditemukan adanya missing value, sehingga bisa dilanjutkan ke proses berikutnya.
+Pada dataset ditemukan missing value sebanyak 398 pada kolom Vol.
 
-#### Merge Dataset
-Sebelum melakukan visualisasi dan pengembangan model, langkah awal yang krusial adalah menggabungkan kedua dataset yang ada. Tujuannya adalah untuk mendapatkan satu dataset yang komprehensif, berisi data yang relevan, dan siap untuk dianalisis lebih lanjut.
-
-Langkah-langkah yang Dilakukan:
-##### 1. Seleksi Kolom:
-- Pilih kolom date, high, low, open, close, volume, dan marketcap dari kedua dataset.
-- Perubahan: Untuk dataset 2, ekstrak tanggal dari kolom timestamp dan simpan ke dalam kolom baru yang bernama date.
-
-##### 2. Konversi Tipe Data:
-- Pastikan tipe data pada kolom yang sama di kedua dataset konsisten.
-- Konversi tipe data kolom date pada dataset kedua menjadi format tanggal yang sesuai.
-
-##### 3. Penggabungan Dataset:
-- Menggunakan metode concat untuk menggabungkan kedua dataset secara vertikal untuk menambahkan baris data dari dataset kedua ke akhir dataset pertama.
-
-Dari ketiga langkah tadi, didapatkan dataset baru dari hasil penggabungan dataset pertama dan kedua. 
-Untuk selanjutnya hasil penggabungan ini akan disebut sebagai dataset final.
-
-<!-- ![image](https://github.com/user-attachments/assets/a1b03191-0ae4-4fe7-8449-6ea8031f36f7) -->
-
-<img src="https://github.com/user-attachments/assets/a1b03191-0ae4-4fe7-8449-6ea8031f36f7" alt="image" width="570"/>
-
-Setelah proses merge selesai, selanjutnya dataset final akan digunakan untuk dianalisis dan pengembangan model.
 
 #### Analisis Tren Harga
 Pada bagian ini, kita akan menggali tren harga Solana dengan tujuan untuk memahami pola pergerakannya dari waktu ke waktu. Dengan menganalisis data historis, kita dapat mengidentifikasi faktor-faktor yang mempengaruhi fluktuasi harga dan memberikan konteks yang lebih mendalam untuk prediksi yang dihasilkan oleh model.
-<!-- ![image](https://github.com/user-attachments/assets/38a9a029-c739-485b-8c64-05391bf9ae3d) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg) -->
 
-<img src="https://github.com/user-attachments/assets/38a9a029-c739-485b-8c64-05391bf9ae3d" alt="image" width="680"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg" alt="image" width="680"/>
 
 Dari visualisasi di atas nampak beberapa informasi di antaranya:
 - Tren Keseluruhan: Terlihat adanya tren peningkatan harga Solana secara umum selama periode tersebut.
-- Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di tahun 2021.
+- Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di seperti di tahun 2022-07 sampai 2023-07 dan terlihat pula mengalami ETH di tahun 2024-01.
 - Hubungan antar harga: Harga pembukaan, penutupan, tertinggi, dan terendah cenderung bergerak bersama-sama, yang mengindikasikan adanya korelasi antara berbagai aspek aktivitas harga harian Solana.
 
 #### Analisis Volatilitas Perubahan Harga
