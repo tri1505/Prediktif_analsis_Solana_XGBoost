@@ -66,7 +66,7 @@ Mengecek informasi pada dataset dengan fungsi info() berikut.
 
 <!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/df_info.jpg) -->
 
-<img src="https://github.com/user-attachments/assets/03f174aa-ab23-40d8-84cb-ae3f14faac6c" alt="image" width="300"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/df_info.jpg" alt="image" width="300"/>
 
 <br>
 
