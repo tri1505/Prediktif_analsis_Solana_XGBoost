@@ -64,7 +64,7 @@ Supaya isi dataset lebih mudah dipahami, kita perlu melakukan proses loading dat
 Mengecek informasi pada dataset dengan fungsi info() berikut.
 <br>
 
-<!-- ![image](https://github.com/user-attachments/assets/03f174aa-ab23-40d8-84cb-ae3f14faac6c) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/df_info.jpg) -->
 
 <img src="https://github.com/user-attachments/assets/03f174aa-ab23-40d8-84cb-ae3f14faac6c" alt="image" width="300"/>
 
