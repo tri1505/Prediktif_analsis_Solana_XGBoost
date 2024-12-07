@@ -71,144 +71,36 @@ Mengecek informasi pada dataset dengan fungsi info() berikut.
 <br>
 
 Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara lain:
-- 6 Kolom dengan tipe float64 yaitu High, Low, Open, Close, Volume, dan Marketcap
-- 1 Kolom dengan tipe int64 yaitu SNo
-- 3 Kolom dengan tipe object yaitu Name, Symbol, dan Date
+- 4 Kolom dengan tipe float64 yaitu High, Low, Open, Price
+- 3 Kolom dengan tipe object yaitu VOl., Change%
 
 <br>
 
-Kemudian untuk dataset kedua juga menggunakan fungsi yang sama.
-<br>
 
-<!-- ![image](https://github.com/user-attachments/assets/ce85ffc1-4b54-46b8-8cf9-5eb3c488aacb) -->
-
-<img src="https://github.com/user-attachments/assets/ce85ffc1-4b54-46b8-8cf9-5eb3c488aacb" alt="image" width="300"/>
-<br>
-
-Berdasarkan informasi di atas dataset kedua memiliki beberapa kriteria antara lain:
-- 10 Kolom dengan tipe object yaitu timeOpen, timeClose, timeHigh, timeLow, open, high, low, close, volume, marketCap
-- 1 Kolom dengan tipe datetime[ns, UTC] yaitu timestamp
-- 1 Kolom dengan tipe int64 yaitu name
 
 #### Cek Missing Value
 Jika data terdiri dari ratusan bahkan ribuan baris tentu akan susah dalam menemukan nilai field yang kosong. Oleh karena itu, Pandas memungkinkan kita dapat menemukan missing value secara cepat dengan fungsi isna() dan sum().
 <br>
 
 <p align="left">
-  <img src="https://github.com/user-attachments/assets/8efec933-e14f-431e-aee8-0d8c120727d9" alt="dataset 1" width="100"/>
-  <img src="https://github.com/user-attachments/assets/dfcaa49b-937a-4485-aaca-3bf6caa8a8e9" alt="dataset 2" width="100"/>
+  <img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg" alt="dataset 1" width="100"/>
 </p>
 
-<!-- ![image](https://github.com/user-attachments/assets/8efec933-e14f-431e-aee8-0d8c120727d9) -->
-<!-- ![image](https://github.com/user-attachments/assets/dfcaa49b-937a-4485-aaca-3bf6caa8a8e9) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg) -->
 
-Pada dataset pertama dan kedua tidak ditemukan adanya missing value, sehingga bisa dilanjutkan ke proses berikutnya.
+Pada dataset ditemukan missing value sebanyak 398 pada kolom Vol.
 
-#### Merge Dataset
-Sebelum melakukan visualisasi dan pengembangan model, langkah awal yang krusial adalah menggabungkan kedua dataset yang ada. Tujuannya adalah untuk mendapatkan satu dataset yang komprehensif, berisi data yang relevan, dan siap untuk dianalisis lebih lanjut.
-
-Langkah-langkah yang Dilakukan:
-##### 1. Seleksi Kolom:
-- Pilih kolom date, high, low, open, close, volume, dan marketcap dari kedua dataset.
-- Perubahan: Untuk dataset 2, ekstrak tanggal dari kolom timestamp dan simpan ke dalam kolom baru yang bernama date.
-
-##### 2. Konversi Tipe Data:
-- Pastikan tipe data pada kolom yang sama di kedua dataset konsisten.
-- Konversi tipe data kolom date pada dataset kedua menjadi format tanggal yang sesuai.
-
-##### 3. Penggabungan Dataset:
-- Menggunakan metode concat untuk menggabungkan kedua dataset secara vertikal untuk menambahkan baris data dari dataset kedua ke akhir dataset pertama.
-
-Dari ketiga langkah tadi, didapatkan dataset baru dari hasil penggabungan dataset pertama dan kedua. 
-Untuk selanjutnya hasil penggabungan ini akan disebut sebagai dataset final.
-
-<!-- ![image](https://github.com/user-attachments/assets/a1b03191-0ae4-4fe7-8449-6ea8031f36f7) -->
-
-<img src="https://github.com/user-attachments/assets/a1b03191-0ae4-4fe7-8449-6ea8031f36f7" alt="image" width="570"/>
-
-Setelah proses merge selesai, selanjutnya dataset final akan digunakan untuk dianalisis dan pengembangan model.
 
 #### Analisis Tren Harga
 Pada bagian ini, kita akan menggali tren harga Solana dengan tujuan untuk memahami pola pergerakannya dari waktu ke waktu. Dengan menganalisis data historis, kita dapat mengidentifikasi faktor-faktor yang mempengaruhi fluktuasi harga dan memberikan konteks yang lebih mendalam untuk prediksi yang dihasilkan oleh model.
-<!-- ![image](https://github.com/user-attachments/assets/38a9a029-c739-485b-8c64-05391bf9ae3d) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg) -->
 
-<img src="https://github.com/user-attachments/assets/38a9a029-c739-485b-8c64-05391bf9ae3d" alt="image" width="680"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg" alt="image" width="680"/>
 
 Dari visualisasi di atas nampak beberapa informasi di antaranya:
 - Tren Keseluruhan: Terlihat adanya tren peningkatan harga Solana secara umum selama periode tersebut.
-- Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di tahun 2021.
+- Volatilitas: Terdapat periode fluktuasi harga yang signifikan, menunjukkan volatilitas yang tinggi. Misalnya, peningkatan dan penurunan harga yang tajam dapat diamati pada rentang waktu tertentu, seperti di seperti di tahun 2022-07 sampai 2023-07 dan terlihat pula mengalami ETH di tahun 2024-01.
 - Hubungan antar harga: Harga pembukaan, penutupan, tertinggi, dan terendah cenderung bergerak bersama-sama, yang mengindikasikan adanya korelasi antara berbagai aspek aktivitas harga harian Solana.
-
-#### Analisis Volatilitas Perubahan Harga
-Volatilitas adalah ukuran statistik yang menggambarkan tingkat perubahan atau fluktuasi harga suatu aset dalam periode waktu tertentu. Dalam konteks Solana, volatilitas sering digunakan untuk mengukur risiko atau ketidakstabilan harga dari waktu ke waktu.
-
-Untuk menghitung volatilitas harga Solana, berikut langkah-langkahnya:
-
-1. Perubahan Persentase Harga (Return): Perubahan harga harian dihitung menggunakan percentage change atau persentase perubahan harga penutupan dari satu hari ke hari berikutnya:
-   ```math
-    {P_t} = \frac{C_t - C_{t-1}}{C_{t-1}}
-    ```
-
-   Di mana:
-   ```math
-   \begin{aligned}
-    P_t & = \text{Return harian pada hari } t, \; \textit{persentase perubahan harga penutupan.}\\
-    C_t & = \text{Harga penutupan pada hari } t, \; \textit{harga Solana di akhir hari perdagangan.}\\
-    C_{t-1} & = \text{Harga penutupan pada hari } t-1, \; \textit{harga Solana di akhir hari sebelumnya.}
-   \end{aligned}
-   ```
-   
-   
-2. Standar Deviasi dari Return: Untuk mengukur volatilitas, diperlukan menghitung standar deviasi dari return harian. Standar deviasi mengukur seberapa jauh perubahan harga harian bervariasi dari nilai rata-ratanya. Semakin besar standar deviasi, semakin tinggi volatilitas harga Solana.
-    ```math
-    {\sigma} = \sqrt{\frac{1}{N-1} \sum_{i=1}^{N} (R_i - \bar{R})^2}
-    ```
-
-   Di mana:
-   ```math
-   \begin{aligned}
-   {\sigma} & = \text{Standar deviasi dari return, mengukur volatilitas harga.}\\
-   N & = \text{Jumlah total observasi return (hari).}\\
-   R_i & = \text{Return harian pada hari ke-} i, \; \text{perubahan persentase harga.}\\
-   \bar{R} & = \text{Rata-rata return harian, memberikan nilai tengah dari semua return.}
-   \end{aligned}
-   ```
-  
-3. Penyesuaian ke Periode Tertentu (Misalnya Mingguan, Bulanan): Untuk mengukur volatilitas dalam rentang waktu tertentu, misalnya mingguan atau bulanan, standar deviasi harian disesuaikan dengan mengalikan akar kuadrat dari jumlah hari dalam periode tersebut:
-   ```math
-    \text{Volatilitas Periodik} = \sigma \times \sqrt{T}
-    ```
-
-   Di mana:
-   ```math
-   \begin{aligned}
-     \text{Volatilitas Periodik} & = \text{Mengukur volatilitas dalam periode tertentu (mingguan, bulanan).}\\
-    \sigma & = \text{Standar deviasi dari return harian, menggambarkan volatilitas harian.}\\
-    T & = \text{Jumlah hari dalam periode yang dianalisis (contoh: 7 untuk mingguan, 30 untuk bulanan).}
-   \end{aligned}
-   ```
-
-##### Volatilitas Jangka Pendek (7 Hari)
-<!-- ![image](https://github.com/user-attachments/assets/39eefb2e-988f-4b9c-8330-07218ab0a0a6) -->
-
-<img src="https://github.com/user-attachments/assets/39eefb2e-988f-4b9c-8330-07218ab0a0a6" alt="image" width="680"/>
-
-##### Volatilitas Jangka Menengah (30 Hari)
-<!-- ![image](https://github.com/user-attachments/assets/7e57deb6-3da2-4287-8b82-fbbe702134ff) -->
-
-<img src="https://github.com/user-attachments/assets/7e57deb6-3da2-4287-8b82-fbbe702134ff" alt="image" width="680"/>
-
-##### Volatilitas Jangka Panjang (90 Hari)
-<!-- ![image](https://github.com/user-attachments/assets/67b10d59-0271-4d61-af0b-354e7fb410c3) -->
-
-<img src="https://github.com/user-attachments/assets/67b10d59-0271-4d61-af0b-354e7fb410c3" alt="image" width="680"/>
-<br>
-
-Dari ketiga visualisasi tingkat volatilitas harga Solana tersebut didapatkan beberapa informasi di antaranya:
-- Volatilitas Tinggi pada 2013-2014 dan 2017-2018: Terlihat lonjakan volatilitas yang signifikan pada periode tersebut, mengindikasikan fluktuasi harga Solana yang besar. Periode tersebut bertepatan dengan bubble dan koreksi harga Solana
-- Volatilitas Menurun seiring Waktu: Secara umum, volatilitas Solana cenderung menurun seiring waktu, meskipun masih terdapat periode dengan volatilitas tinggi
-- Volatilitas Jangka Panjang lebih Stabil: Volatilitas 90 hari (jangka panjang) cenderung lebih stabil dibandingkan dengan volatilitas mingguan dan bulanan. Hal ini menunjukkan bahwa fluktuasi harga Solana cenderung mereda dalam jangka waktu yang lebih panjang
-
 
 #### Rata-Rata Pergerakan Harga
 Rata-rata Pergerakan Sederhana (Simple Moving Average - SMA) adalah metode perataan data harga dalam periode waktu tertentu untuk membantu mengidentifikasi tren dalam harga aset, seperti Solana.
@@ -232,7 +124,7 @@ n & = \text{Jumlah hari dalam periode perhitungan SMA.}
 
 Untuk SMA jangka pendek - menengah akan digunakan periode 50 hari, sedangkan untuk jangka panjang akan digunakan periode 200 hari.
 
-***Mengapa 50 dan 200 Hari?***
+***Dengan Alasan Sebagai Berikut***
 
 - SMA-50 sering digunakan untuk mengukur tren jangka pendek hingga menengah. Periode 50 hari dianggap cukup untuk menunjukkan fluktuasi harga terbaru tanpa terlalu banyak "noise" dari pergerakan harga harian
 - SMA-200 adalah indikator yang lebih umum digunakan untuk melihat tren jangka panjang. Periode ini cukup panjang untuk memberikan gambaran stabil tentang pergerakan harga dan menghilangkan fluktuasi harian yang tidak signifikan
