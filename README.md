@@ -129,10 +129,10 @@ Untuk SMA jangka pendek - menengah akan digunakan periode 50 hari, sedangkan unt
 - SMA-50 sering digunakan untuk mengukur tren jangka pendek hingga menengah. Periode 50 hari dianggap cukup untuk menunjukkan fluktuasi harga terbaru tanpa terlalu banyak "noise" dari pergerakan harga harian
 - SMA-200 adalah indikator yang lebih umum digunakan untuk melihat tren jangka panjang. Periode ini cukup panjang untuk memberikan gambaran stabil tentang pergerakan harga dan menghilangkan fluktuasi harian yang tidak signifikan
 
-<!-- ![image](https://github.com/user-attachments/assets/ffdc757a-7579-4862-ac04-5b4f40018d34) -->
+<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/harga_SMA.jpg4) -->
 <br>
 
-<img src="https://github.com/user-attachments/assets/ffdc757a-7579-4862-ac04-5b4f40018d34" alt="image" width="680"/>
+<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/harga_SMA.jpg" alt="image" width="680"/>
 
 Dari visualasi di atas, didapatkan informasi sebagai berikut:
 
