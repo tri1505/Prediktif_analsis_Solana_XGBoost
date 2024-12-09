@@ -42,7 +42,7 @@ Untuk mencapai goals tersebut, ada 2 pendekatan yang akan digunakan yaitu:
   - n_estimators: Menentukan jumlah pohon keputusan yang akan dibangun. Jumlah pohon yang terlalu sedikit dapat menyebabkan underfitting, sedangkan jumlah pohon yang terlalu banyak dapat menyebabkan overfitting.
 
 ## Data Understanding
-Data yang akan digunakan pada proyek kali ini adalah [Solana Historical Data](https://www.investing.com/indices/investing.com-sol-usd-historical-data) yang diunduh dariInvesting.com 
+Data yang akan digunakan pada proyek kali ini adalah [Solana Historical Data](https://www.investing.com/indices/investing.com-sol-usd-historical-data) yang diunduh dari www.investing.com 
 
 Dataset ini memiliki rentang waktu dari 13 Juli 2020 sampai 7 Desember 2024, Nantinya dari dataset tersebut model dapat belajar dari berbagai kondisi pasar dan menangkap perubahan pola yang terjadi seiring waktu. Hal ini memungkinkan model untuk memberikan prediksi yang lebih akurat dan adaptif terhadap dinamika pasar kripto yang kompleks.
 
@@ -68,10 +68,7 @@ Mengecek informasi pada dataset dengan fungsi info() berikut.
 
 Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara lain:
 - 4 Kolom dengan tipe float64 yaitu High, Low, Open, Price
-- 3 Kolom dengan tipe object yaitu VOl., Change%
-
-<br>
-
+- 3 Kolom dengan tipe object yaitu Date, Vol., Change%
 
 
 #### Cek Missing Value
@@ -112,7 +109,6 @@ n & = \text{Jumlah hari dalam periode perhitungan SMA.}
 \end{aligned}
 ```
 
-<br>
 
 Untuk SMA jangka pendek - menengah akan digunakan periode 50 hari, sedangkan untuk jangka panjang akan digunakan periode 200 hari.
 
