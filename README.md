@@ -74,16 +74,18 @@ Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara 
 
 #### Cek Missing Value
 Jika data terdiri dari ratusan bahkan ribuan baris tentu akan susah dalam menemukan nilai field yang kosong. Oleh karena itu, Pandas memungkinkan kita dapat menemukan missing value secara cepat dengan fungsi isna() dan sum().
-![miss_na](https://github.com/user-attachments/assets/ba49703a-6a89-41c1-a9c2-9be70f920c45)
+
+![miss_na](https://github.com/user-attachments/assets/05ea1db0-37d9-411a-8b60-70ed834ab1bb)
+
 
 Pada dataset ditemukan missing value sebanyak 398 pada kolom Vol.
 
 
 #### Analisis Tren Harga
 Pada bagian ini, kita akan menggali tren harga Solana dengan tujuan untuk memahami pola pergerakannya dari waktu ke waktu. Dengan menganalisis data historis, kita dapat mengidentifikasi faktor-faktor yang mempengaruhi fluktuasi harga dan memberikan konteks yang lebih mendalam untuk prediksi yang dihasilkan oleh model.
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg) -->
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/pergerakan_harga.jpg" alt="image" width="680"/>
+![pergerakan_harga](https://github.com/user-attachments/assets/42537625-4f8a-47b7-9c42-232a087baf11)
+
 
 Dari visualisasi di atas nampak beberapa informasi di antaranya:
 - Tren Keseluruhan: Terlihat adanya tren peningkatan harga Solana secara umum selama periode tersebut.
@@ -117,10 +119,8 @@ Untuk SMA jangka pendek - menengah akan digunakan periode 50 hari, sedangkan unt
 - SMA-50 sering digunakan untuk mengukur tren jangka pendek hingga menengah. Periode 50 hari dianggap cukup untuk menunjukkan fluktuasi harga terbaru tanpa terlalu banyak "noise" dari pergerakan harga harian
 - SMA-200 adalah indikator yang lebih umum digunakan untuk melihat tren jangka panjang. Periode ini cukup panjang untuk memberikan gambaran stabil tentang pergerakan harga dan menghilangkan fluktuasi harian yang tidak signifikan
 
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/harga_SMA.jpg4) -->
-<br>
+![harga_SMA](https://github.com/user-attachments/assets/fc3245c7-1b8e-4ec2-a8f5-f35e0ddf8641)
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/harga_SMA.jpg" alt="image" width="680"/>
 
 Dari visualasi di atas, didapatkan informasi sebagai berikut:
 
@@ -151,9 +151,8 @@ Pemunduran fitur ini penting untuk mencegah kebocoran data, di mana model dapat 
 ### 2. Split Dataset
 Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model. proporsi pembagian data latih dan uji adalah 80:20. Proporsi tersebut cukup ideal untuk model dengan jumlah data 1582. Namun, jika memiliki dataset berukuran besar, kita perlu memikirkan strategi pembagian dataset lain agar proporsi data uji tidak terlalu banyak.  Pembagian ini menggunakan fungsi train_test_split dari sklearn hasil yang diperoleh berikut:
 
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/data_train.jpg) -->
+![data_train](https://github.com/user-attachments/assets/1894b9f0-4d81-4e88-8cce-6e84c6287b1a)
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/data_train.jpg" alt="image" width="260"/>
 
 ## Modeling
 Pada tahap ini menggunakan algoritma machine learning XGBoost dengan menerapkan hyperparameter tuning untuk mencari nilai learning rate, max_depth, subsample, dan n_estimators terbaik. Model yang sudah dilatih akan dievaluasi dengan metrik MAE dan MSE, penjelasan lebih detail terkait metrik evaluasi akan dibahas saat evaluasi model.
@@ -165,9 +164,8 @@ XGBoost merupakan algoritma ensemble yang sangat cocok untuk tugas prediksi, ter
 Pada tahap ini, model XGBoost dilatih tanpa melakukan penyesuaian parameter, menggunakan konfigurasi default yang disediakan oleh library. Tujuan dari langkah ini adalah untuk mendapatkan baseline performance yang akan menjadi acuan bagi evaluasi model selanjutnya. Model ini dilatih menggunakan fitur-fitur yang telah disiapkan sebelumnya, termasuk nilai-nilai high, low, open, Price, yang telah dimundurkan 10 hari.
 
 Dari pelatihan model baseline, didapatka hasil sebagai berikut:
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/before_tuning.jpg) -->
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/before_tuning.jpg" alt="image" width="300"/>
+![before_tuning](https://github.com/user-attachments/assets/899cac6f-7c93-42ef-995e-b84ed6cb6e27)
 
 
 Dari informasi di atas, didapatkan Mean Squared Error (MSE) sebesar 702.99 dan Mean Absolute Error (MAE) sebesar 16.10, yang menggambarkan tingkat kesalahan prediksi dalam model ini. Dengan MAE sebesar 16.10, ini berarti rata-rata prediksi harga Solana meleset sekitar 16.10 USD dari harga sebenarnya. Mengingat volatilitas harga Solana yang tinggi.
@@ -189,9 +187,9 @@ Selanjutnya ditentukkan kandidat untuk memilih parameter terbaik dengan ketentua
 - subsample: 0.8, 1.0
 
 Kemudian dengan menggunakan GridSearchCV Scikit-Learn untuk mencari parameter yang dilakukan secara brute force dan melaporkan mana parameter yang memiliki akurasi paling baik. Setelah dilakukan proses pencarian parameter yang optimal menggunakan GridSearch diperoleh parameter nilai learning_rate = 0.01, max_depth = 3, n_estimators = 300, dan subsample = 0.8 yang akan digunakan untuk melakukan fit model yang diperoleh hasil berikut :
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/after_tuning.jpg) -->
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/after_tuning.jpg" alt="image" width="350"/>
+![after_tuning](https://github.com/user-attachments/assets/2be29310-b520-49a3-ab3e-34c551b16120)
+
 
 Nilai akurasi model meningkat setelah diterapkan hyperparameter tuning dengan perolehan nilai Mean Squared Error: 478.63 dan Mean Absolute Error: 14.11. Tentunya performa model lebih baik jika dibandingkan dengan akurasi sebelum dilakukan tuning.
 
@@ -246,9 +244,8 @@ MAE dan MSE adalah dua metrik yang umum digunakan untuk mengukur kinerja model r
 ### Harga Aktual vs Prediksi
 Dalam analisis ini, kita akan membandingkan harga aktual Solana dengan harga yang diprediksi oleh model XGBoost melalui visualisasi scatterplot. Visualisasi ini tidak hanya memungkinkan kita untuk melihat sejauh mana prediksi model sejalan dengan data aktual, tetapi juga membantu kita mengidentifikasi pola dan outlier yang mungkin ada.
 
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/aktual_prediksi.jpg) -->
+![aktual_prediksi](https://github.com/user-attachments/assets/4fffd2f7-b617-42e1-8bc9-d0f58e3003c2)
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/aktual_prediksi.jpg" alt="image" width="680"/>
 
 Dari visualiasi di atas didapatkan informasi sebagai berikut:
 - Meskipun ada beberapa titik data yang melenceng dari garis ideal, tetapi secara keseluruhan sebaran titik-titik pada grafik harga aktual vs harga prediksi menunjukkan bahwa prediksi model XGBoost cukup akurat dan mengikuti tren harga aktual dengan baik.
@@ -256,9 +253,9 @@ Dari visualiasi di atas didapatkan informasi sebagai berikut:
 
 ### Prediksi Harga 10 Hari ke Depan
 Selanjutnya, akan diprediksi harga Solana untuk lima hari ke depan, suatu hal yang menjadi salah satu tujuan utama dalam pembuatan model ini. Karena baris data terakhir berada di tanggal 19 Oktober 2024, maka hasil prediksi akan berada di tanggal 20-24 Oktober 2024.
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/10_hari.jpg) -->
 
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/10_hari.jpg" alt="image" width="300"/>
+![10_hari](https://github.com/user-attachments/assets/d0f1ecf7-cc43-4c5e-9c15-17e5cf42bade)
+
 
 Berdasarkan model XGBoost yang telah dituning, prediksi harga Solana untuk periode 8 hingga 17 Desember 2024 menunjukkan fluktuasi harga yang bervariasi. dilihat dari harga prediksi tersebut harga solana masih dalam posisi sideways karena tidak ada lonjakan harga yang tinggi maupun rendah, pada fase ini koin solana ini di dukung naratif yang positif yaitu solana bisa menjadi alternatif network pengganti ETH yang lebih cepat dengan gas fee yang lebih murah maka posisi sideways ini bisa digunakan para investor untuk melakukan akumulasi dan Menunggu momentum untuk harga naik
 
