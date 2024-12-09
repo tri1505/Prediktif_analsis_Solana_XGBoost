@@ -83,10 +83,10 @@ Jika data terdiri dari ratusan bahkan ribuan baris tentu akan susah dalam menemu
 <br>
 
 <p align="left">
-  <img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg" alt="dataset 1" width="100"/>
+  <img src="miss_na.jpg" alt="dataset 1" width="100"/>
 </p>
 
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/miss_na.jpg) -->
+<!-- ![image](miss_na.jpg) -->
 
 Pada dataset ditemukan missing value sebanyak 398 pada kolom Vol.
 
