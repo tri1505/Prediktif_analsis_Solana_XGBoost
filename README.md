@@ -62,7 +62,9 @@ Supaya isi dataset lebih mudah dipahami, kita perlu melakukan proses loading dat
 ### 2. Exploratory Data Analysis
 #### Informasi Dataset
 Mengecek informasi pada dataset dengan fungsi info() berikut.
-![df_info](https://github.com/user-attachments/assets/cb218029-9de5-4457-984f-3bb3afca283d)
+
+![df_info](https://github.com/user-attachments/assets/52c4d73f-4df6-4fb3-9197-3b00a14a3715)
+
 
 Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara lain:
 - 4 Kolom dengan tipe float64 yaitu High, Low, Open, Price
