@@ -241,6 +241,16 @@ MAE dan MSE adalah dua metrik yang umum digunakan untuk mengukur kinerja model r
   \end{aligned}
   ```
 
+### Perbandingan Performa sebelum dan setelah Hyperparameter Tuning
+Pada tahap awal, model dilatih tanpa melakukan hyperparameter tuning, menghasilkan nilai Mean Squared Error (MSE) sebesar 702.99 dan Mean Absolute Error (MAE) sebesar 16.10. Hasil ini menunjukkan bahwa model sudah cukup baik dalam memprediksi harga, namun masih terdapat ruang untuk perbaikan dalam hal akurasi prediksi.
+
+![mea_beforetuning](https://github.com/user-attachments/assets/211ab7f0-19b6-41f0-a3e3-774777a3baf8)
+
+Setelah melakukan tuning, model mengalami peningkatan performa dengan MSE menurun menjadi 478.63 dan MAE turun menjadi 14.11. Penurunan ini menunjukkan bahwa model mampu lebih baik dalam menyesuaikan hyperparameter untuk mengurangi kesalahan prediksi.
+
+![mea_aftertuning](https://github.com/user-attachments/assets/d77e53f4-eb7d-48eb-973a-0b21b4ed4eb2)
+
+
 ### Harga Aktual vs Prediksi
 Dalam analisis ini, kita akan membandingkan harga aktual Solana dengan harga yang diprediksi oleh model XGBoost melalui visualisasi scatterplot. Visualisasi ini tidak hanya memungkinkan kita untuk melihat sejauh mana prediksi model sejalan dengan data aktual, tetapi juga membantu kita mengidentifikasi pola dan outlier yang mungkin ada.
 
