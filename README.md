@@ -62,13 +62,7 @@ Supaya isi dataset lebih mudah dipahami, kita perlu melakukan proses loading dat
 ### 2. Exploratory Data Analysis
 #### Informasi Dataset
 Mengecek informasi pada dataset dengan fungsi info() berikut.
-<br>
-
-<!-- ![image](https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/df_info.jpg) -->
-
-<img src="https://github.com/tri1505/Prediktif_analsis_Solana_XGBoost/blob/main/df_info.jpg" alt="image" width="300"/>
-
-<br>
+![df_info](https://github.com/user-attachments/assets/cb218029-9de5-4457-984f-3bb3afca283d)
 
 Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara lain:
 - 4 Kolom dengan tipe float64 yaitu High, Low, Open, Price
@@ -80,13 +74,7 @@ Berdasarkan informasi di atas dataset pertama memiliki beberapa kriteria antara 
 
 #### Cek Missing Value
 Jika data terdiri dari ratusan bahkan ribuan baris tentu akan susah dalam menemukan nilai field yang kosong. Oleh karena itu, Pandas memungkinkan kita dapat menemukan missing value secara cepat dengan fungsi isna() dan sum().
-<br>
-
-<p align="left">
-  <img src="miss_na.jpg" alt="dataset 1" width="100"/>
-</p>
-
-<!-- ![image](miss_na.jpg) -->
+![miss_na](https://github.com/user-attachments/assets/ba49703a-6a89-41c1-a9c2-9be70f920c45)
 
 Pada dataset ditemukan missing value sebanyak 398 pada kolom Vol.
 
